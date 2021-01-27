@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import twitter from "../logo/twitter.png";
 import facebook from "../logo/facebook.png";
 import skype from "../logo/skype.png";
@@ -8,6 +8,7 @@ import xing from "../logo/xing.png";
 import forrst from "../logo/forrst.png";
 import line from "../logo/line.png";
 import vine from "../logo/vine.png";
+import { IoIosClose } from "react-icons/io";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa";
@@ -77,7 +78,7 @@ const Job = () => {
       jobCardTitle: "Sr. Product Designer",
       jobCardSubtitle:
         "The User Experience Designer position exists to create compelling and digital user experience through excellent design...",
-      jobCardSkills: ["Full Time", "Min. 1 Year", "Senior Level"]
+      jobCardSkills: ["Full Time", "Min. 3 Year", "Senior Level"]
     },
     {
       jobCardIcon: twitter,
@@ -171,7 +172,7 @@ const Job = () => {
     {
       jobTimeSubtitle: "Mid Level",
       jobTimeNumber: "35",
-      checked: 'true'
+      checked: "true"
     },
     {
       jobTimeSubtitle: "Senior Level",
@@ -186,7 +187,7 @@ const Job = () => {
       jobTimeSubtitle: "VP or Above",
       jobTimeNumber: "56"
     }
-  ]
+  ];
   const salary = [
     {
       jobTimeSubtitle: "$700 - $1000",
@@ -214,7 +215,8 @@ const Job = () => {
       jobTimeNumber: "22",
       checked: "true"
     }
-  ]
+  ];
+  const [search, setSearch] = useState("");
   return (
     <Container>
       <Header>
@@ -252,12 +254,22 @@ const Job = () => {
             Londontowne, MD
           </SearchLocation>
           <SearchJob>
-            <IoBagSharp />
-            <input type="text" placeholder="Job Type" />
+            <IoBagSharp className="bag" />
+            <input
+              type="text"
+              value={search}
+              onChange={e => {
+                setSearch(e.target.value);
+              }}
+              placeholder="Job Type Search.."
+            />
+            {search !== "" && (
+              <IoIosClose className="close" onClick={() => setSearch("")} />
+            )}
           </SearchJob>
           <SearchSalary>
-            <RiExchangeDollarLine />
-            <input type="text" placeholder="Salary Range" />
+            <RiExchangeDollarLine className="dollar" />
+            <input type="text" placeholder="Salary Range Search.." />
           </SearchSalary>
           <SearchButton>Find Job</SearchButton>
         </SearchMenu>
@@ -302,9 +314,21 @@ const Job = () => {
               </SearchedSort>
             </SearchedBar>
             <SearchedJobs>
-              {items.map(item => {
-                return <Item {...item} key={item.jobCardIcon} />;
-              })}
+              {items
+                .filter(job => {
+                  if (search.length === 0) {
+                    return true;
+                  }
+                  return (
+                    job.jobCardSkills
+                      .join("")
+                      .toLowerCase()
+                      .indexOf(search.toLowerCase()) >= 0
+                  );
+                })
+                .map(item => {
+                  return <Item {...item} key={item.jobCardIcon} />;
+                })}
             </SearchedJobs>
           </SearchJobsContainer>
         </MainContainer>
@@ -318,7 +342,7 @@ const Check = props => {
   return (
     <JobTimeContainer>
       <CheckBoxContainer>
-        <input type="checkbox" checked={checked}/>
+        <input type="checkbox" checked={checked} />
         <label>{jobTimeSubtitle}</label>
       </CheckBoxContainer>
       <span>{jobTimeNumber}</span>
