@@ -113,7 +113,7 @@ const Job = () => {
       jobCardTitle: "User Interface Designer",
       jobCardSubtitle:
         "The User Experience Designer position exists to create compelling and digital user experience through excellent design...",
-      jobCardSkills: ["Full Time", "Min. 1 Year", "Senior Level"]
+      jobCardSkills: ["Full Time", "Min. 2 Year", "Senior Level"]
     },
     {
       jobCardIcon: line,
@@ -127,7 +127,7 @@ const Job = () => {
       jobCardTitle: "UX Designer",
       jobCardSubtitle:
         "The User Experience Designer position exists to create compelling and digital user experience through excellent design...",
-      jobCardSkills: ["Full Time", "Min. 1 Year", "Junior Level"]
+      jobCardSkills: ["Full Time", "Backend", "Junior Level"]
     }
   ];
   const checkBox = [
