@@ -9,6 +9,7 @@ export const Container = styled.div`
   height: 100vh;
   background-color: #fafafb;
   margin: 0 auto;
+  font-family: Poppins, sans-serif;
 `;
 export const Header = styled.div`
   display: flex;
@@ -23,6 +24,68 @@ export const Header = styled.div`
   font-family: Poppins, sans-serif;
   box-shadow: 0 4px 20px rgb(88 99 148 / 17%);
   z-index: 1;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    padding: 0 40px;
+  }
+`;
+export const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  p {
+    font-weight: 600;
+    font-size: 18px;
+  }
+`;
+export const Logo = styled.div`
+  display: flex;
+  background-image: ${({ logo }) => `url(${logo})`};
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  margin-right: 10px;
+`;
+export const HeaderMenu = styled.div`
+  display: flex;
+  box-sizing: border-box;
+`;
+export const HeaderLink = styled.a`
+  outline: none;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: 600;
+  font-size: 14px;
+  color: ${({ active }) => (active ? "#0162ff" : "#2f2f33")};
+  :last-of-type {
+    margin-right: 0;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+    }
+  }
+`;
+export const UserSettings = styled.div`
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 14px;
+`;
+export const UserLogo = styled.div`
+  display: flex;
+  background-image: ${({ user }) => `url(${user})`};
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-size: cover;
+  margin-right: 10px;
+`;
+export const UserName = styled.div`
+  display: flex;
+  @media screen and (max-width: 768px) {
+  }
 `;
 export const ContentContainer = styled.div`
   display: flex;
@@ -42,61 +105,10 @@ export const SearchMenu = styled.div`
   border-radius: 8px;
   width: 100%;
   margin-bottom: 25px;
-`;
-export const Logo = styled.div`
-  display: flex;
-  background-image: ${({ logo }) => `url(${logo})`};
-  width: 24px;
-  height: 24px;
-  align-items: center;
-  margin-right: 10px;
-`;
-export const LogoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  p {
-    font-weight: 600;
-    font-size: 18px;
-  }
-`;
-export const HeaderMenu = styled.div`
-  display: flex;
-  box-sizing: border-box;
-`;
-
-export const HeaderLink = styled.a`
-  outline: none;
-  text-decoration: none;
-  margin-right: 15px;
-  font-weight: 600;
-  font-size: 14px;
-  color: ${({ active }) => (active ? "#0162ff" : "#2f2f33")};
-  :last-of-type {
-    margin-right: 0;
+  @media screen and (max-width: 768px) {
   }
 `;
 
-export const UserSettings = styled.div`
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  font-weight: 600;
-  font-size: 14px;
-`;
-export const UserLogo = styled.div`
-  display: flex;
-  background-image: ${({ user }) => `url(${user})`};
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-size: cover;
-  margin-right: 10px;
-`;
-export const UserName = styled.div`
-  display: flex;
-`;
 export const SearchBar = styled.div`
   display: flex;
   height: 35px;
@@ -107,6 +119,24 @@ export const SearchBar = styled.div`
   svg {
     margin-left: 10px;
     margin-right: 5px;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+export const SearchItem = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #0162ff;
+  border: 1px solid #efefef;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-right: 10px;
+  svg {
+    font-size: 18px;
+    margin-left: 10px;
+    cursor: pointer;
   }
 `;
 export const SearchLocation = styled.div`
@@ -123,10 +153,12 @@ export const SearchLocation = styled.div`
     color: #0162ff;
     margin-right: 5px;
   }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 export const SearchJob = styled.div`
   display: flex;
-  box-sizing: border-box;
   align-items: center;
   flex-direction: row;
   height: 35px;
@@ -150,6 +182,12 @@ export const SearchJob = styled.div`
     border: none;
     outline: none;
   }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-right: 0;
+  }
 `;
 export const SearchSalary = styled.div`
   display: flex;
@@ -169,6 +207,9 @@ export const SearchSalary = styled.div`
     border: none;
     outline: none;
   }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 export const SearchButton = styled.div`
   display: flex;
@@ -184,20 +225,8 @@ export const SearchButton = styled.div`
   color: #fff;
   cursor: pointer;
   margin-left: auto;
-`;
-export const SearchItem = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-  color: #0162ff;
-  border: 1px solid #efefef;
-  padding: 8px 10px;
-  border-radius: 8px;
-  margin-right: 10px;
-  svg {
-    font-size: 18px;
-    margin-left: 10px;
-    cursor: pointer;
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `;
 export const MainContainer = styled.div`
@@ -212,12 +241,121 @@ export const SearchBlock = styled.div`
   margin-right: 25px;
   border-radius: 8px;
   margin-bottom: 25px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+export const Alert = styled.div`
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  background-color: #e8f2ff;
+  padding: 24px 18px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  input {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+`;
+export const AlertTitle = styled.div`
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+`;
+export const AlertSubtitle = styled.div`
+  font-size: 13px;
+  color: #83838e;
+  line-height: 1.6em;
+  margin-bottom: 20px;
+`;
+export const AlertButton = styled.button`
+  border: none;
+  color: #fff;
+  background-color: #0162ff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 60%;
+`;
+export const JobTime = styled.div`
+  margin-bottom: 5px;
+  :last-of-type {
+    margin-bottom: 0;
+  }
+`;
+export const SearchJobsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+`;
+export const SearchedBar = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: inherit;
+  justify-content: space-between;
+  margin-bottom: 25px;
+`;
+export const SearchedShow = styled.div`
+  display: flex;
+  font-size: 19px;
+  font-weight: 600;
+`;
+export const SearchedSort = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #83838e;
 `;
 export const SearchedJobs = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 25px;
   grid-row-gap: 25px;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+export const JobTimeContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  label {
+    font-size: 14px;
+    color: #83838e;
+  }
+  input {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  span {
+    border-radius: 5px;
+    color: #0162ff;
+    background-color: #e1ebfb;
+    font-size: 12px;
+    padding: 5px;
+  }
+`;
+export const CheckBoxContainer = styled.div`
+  display: flex;
 `;
 export const JobCard = styled.div`
   box-sizing: border-box;
@@ -309,71 +447,6 @@ export const Messages = styled.button`
   font-size: 13px;
   font-weight: 600;
 `;
-export const Alert = styled.div`
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: column;
-  background-color: #e8f2ff;
-  padding: 24px 18px;
-  border-radius: 8px;
-  margin-bottom: 25px;
-  input {
-    display: flex;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    background-color: #fff;
-    border: none;
-    outline: none;
-    font-size: 13px;
-    margin-bottom: 15px;
-  }
-`;
-export const AlertTitle = styled.div`
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 8px;
-`;
-export const AlertSubtitle = styled.div`
-  font-size: 13px;
-  color: #83838e;
-  line-height: 1.6em;
-  margin-bottom: 20px;
-`;
-export const AlertButton = styled.button`
-  border: none;
-  color: #fff;
-  background-color: #0162ff;
-  padding: 8px 10px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  width: 60%;
-`;
-export const SearchedBar = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: inherit;
-  justify-content: space-between;
-  margin-bottom: 25px;
-`;
-export const SearchedShow = styled.div`
-  display: flex;
-  font-size: 19px;
-  font-weight: 600;
-`;
-export const SearchedSort = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  color: #83838e;
-`;
 export const PostIconContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -387,46 +460,9 @@ export const PostIconContainer = styled.div`
     margin-left: 5px;
   }
 `;
-export const SearchJobsContainer = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  box-sizing: border-box;
-  margin-bottom: 25px;
-`;
-export const JobTime = styled.div`
-  margin-bottom: 5px;
-  :last-of-type {
-    margin-bottom: 0;
-  }
-`;
 export const JobTimeTitle = styled.div`
   display: flex;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 15px;
-`;
-export const JobTimeContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  label {
-    font-size: 14px;
-    color: #83838e;
-  }
-  input {
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  span {
-    border-radius: 5px;
-    color: #0162ff;
-    background-color: #e1ebfb;
-    font-size: 12px;
-    padding: 5px;
-  }
-`;
-export const CheckBoxContainer = styled.div`
-  display: flex;
 `;
