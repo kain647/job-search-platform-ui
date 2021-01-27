@@ -26,6 +26,7 @@ export const Header = styled.div`
 `;
 export const ContentContainer = styled.div`
   display: flex;
+  width: 100%;
   box-sizing: border-box;
   flex-direction: column;
   padding: 20px;
@@ -125,11 +126,17 @@ export const SearchLocation = styled.div`
 `;
 export const SearchJob = styled.div`
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   flex-direction: row;
   height: 35px;
+  width: 250px;
   border-right: 1px solid #efefef;
-  svg {
+  .close {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .bag {
     font-size: 18px;
     margin-left: 10px;
     margin-right: 10px;
@@ -148,7 +155,7 @@ export const SearchSalary = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  svg {
+  .dollar {
     font-size: 24px;
     margin-left: 10px;
     margin-right: 10px;
@@ -349,9 +356,10 @@ export const AlertButton = styled.button`
 `;
 export const SearchedBar = styled.div`
   display: flex;
+  flex-direction: row;
+  width: 100%;
   align-items: inherit;
   justify-content: space-between;
-  flex-direction: row;
   margin-bottom: 25px;
 `;
 export const SearchedShow = styled.div`
@@ -380,7 +388,9 @@ export const PostIconContainer = styled.div`
   }
 `;
 export const SearchJobsContainer = styled.div`
-  display: grid;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
   box-sizing: border-box;
   margin-bottom: 25px;
 `;
