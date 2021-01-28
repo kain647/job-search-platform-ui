@@ -269,8 +269,9 @@ export const Alert = styled.div`
   }
 `;
 export const AlertTitle = styled.div`
+  font-weight: 600;
+  margin-top: 16px;
   font-size: 14px;
-  font-weight: 500;
   margin-bottom: 8px;
 `;
 export const AlertSubtitle = styled.div`
